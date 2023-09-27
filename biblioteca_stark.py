@@ -2,10 +2,11 @@ from data_stark import lista_personajes
 from funciones_stark2 import *
 
 def imprimir(funcion):
+    """Se encarga de imprimir o mostrar las funciones que no printeen su resultado"""
     print(funcion)
 
 def stark_normalizar_dato(lista: list):
-    """ 1.Castea/normaliza los datos de la lista """
+    """ 1.Castea/normaliza los datos de la lista que representen dígitos. Antes verifica que no estén ya en float/int"""
 
     bandera = False
 
@@ -46,8 +47,9 @@ se hayan normalizado anteriormente.")
 
     return lista_personajes
 
-#2.Valida que el diccionario no esté vacío y que la key insertada exista dentro del mismo
 def obtener_dato(heroe: dict, clave: str):
+    """2.Valida que el diccionario no esté vacío y que la key insertada exista dentro del mismo"""
+
     dato_validado =  False
 
     if len(heroe) != 0 and clave in heroe:
@@ -57,24 +59,24 @@ def obtener_dato(heroe: dict, clave: str):
 
     return dato_validado
 
-#3.Toma un diccionario junto a una key y valida que esa key exista en dicho diccionario para luego mostrarla
 def obtener_nombre(heroe: dict, clave: str):
+    """3.Toma un diccionario junto a una key y valida que esa key exista en dicho diccionario para luego mostrarla"""
 
     nombre = obtener_dato(heroe, clave)
     nombre_obtenido = f"Nombre: {nombre}"
 
     return nombre_obtenido
 
-#4.obtiene el nombre de un diccionario y una key a elección retornando un str con ambas. Además, un booleano
 def obtener_nombre_y_dato(heroe: dict, clave: str)->str:
+    """4.obtiene el nombre de un diccionario y una key a elección retornando un str con ambas. Además, un booleano"""
     nombre = obtener_nombre(heroe, "nombre")
     dato = obtener_dato(heroe, clave)
     nombre_dato = f"Nombre: {nombre} | {clave}: {dato}\n"
 
     return nombre_dato
 
-#5.Busca el maximo con una clave específica de una lista
 def obtener_maximo(heroes: list, clave: str):
+    """5.Busca el maximo con una clave específica de una lista"""
     flag_max = True
 
     if len(heroes) != 0:
@@ -93,9 +95,8 @@ def obtener_maximo(heroes: list, clave: str):
 
     return mensaje
 
-#6.Busca el minimo con una clave específica de una lista
 def obtener_minimo(heroes: list, clave: str):
-
+    """6.Busca el minimo con una clave específica de una lista"""
     flag = False
     flag_min = True
 
@@ -117,8 +118,8 @@ def obtener_minimo(heroes: list, clave: str):
 
     return minimo
 
-#7.Devuelve una lista de diccionarios que coincidan con el maximo o el minimo de una clave
 def obtener_dato_cantidad(lista: list, numero, clave: str):
+    """7.Devuelve una lista de diccionarios que coincidan con el maximo o el minimo de una clave"""
 
     lista_coincidentes = []
 
@@ -133,8 +134,8 @@ def obtener_dato_cantidad(lista: list, numero, clave: str):
 
     return lista_coincidentes
 
-#8.Imprime todos los diccionarios de los heroes 
 def stark_imprimir_heroes(lista: list):
+    """8.Imprime todos los diccionarios de los heroes """
     flag = False
 
     if len(lista) != 0:
@@ -158,8 +159,8 @@ Inteligencia: {heroe ['inteligencia']}
 
     return mensaje
 
-#9.Suma los valores de una clave específica (ejemplo: Fuerza, peso, altura.)
 def sumar_dato_heroe(heroes: list, dato:str):
+    """9.Suma los valores de una clave específica (ejemplo: Fuerza, peso, altura.)"""
     acumulador_dato = 0
 
     for heroe in heroes:
@@ -171,8 +172,8 @@ def sumar_dato_heroe(heroes: list, dato:str):
 
     return acumulador_dato
 
-#10.Divide dos valores ingresados
 def  dividir(dividendo, divisor):
+    """10.Divide dos valores ingresados"""
     flag = False
 
     if divisor != 0:
@@ -183,8 +184,8 @@ def  dividir(dividendo, divisor):
 
     return resultado_division
 
-#11.Calcula el promedio de la lista y dato(Ejemplo: Fuerza, altura, peso) ingresado
 def calcular_promedio(heroes: list, dato: str):
+    """11.Calcula el promedio de la lista y dato(Ejemplo: Fuerza, altura, peso) ingresado"""
     mostrar_promedio_dato(heroes, dato)
     suma_dato = sumar_dato_heroe(heroes, dato)
     cantidad = len(heroes)
@@ -192,9 +193,8 @@ def calcular_promedio(heroes: list, dato: str):
 
     print(f"El promedio de {dato} es.. {promedio}")
 
-#12.valida que la lista ingresada no está vacía y que la key es float o int.
 def mostrar_promedio_dato(lista: list, dato: str):
-
+    """12.valida que la lista ingresada no está vacía y que la key es float o int."""
     flag = False
 
     if len(lista) != 0:
@@ -206,7 +206,6 @@ def mostrar_promedio_dato(lista: list, dato: str):
 
 # ----------PARTE DEL MENU DE LAS CONSIGNAS DE STARK 2-----------
 
-#Menu de las opciones anteriores
 def mostrar_menu():
 
     menu = (f"""----------Menu de opciones----------\n
@@ -290,7 +289,6 @@ def stark_marvel_app(lista: list):
                 print(f"Error. No puede utilizar las opciones sin antes castear.\
 Presione 1 para castear los datos o presione s para salir")
 
-
 #--------- FUNCIONES STARK 2 -----------
 
 def mostrar_por_genero(lista:list, key: str, genero: str):
@@ -323,8 +321,6 @@ def mostrar_promedio_fuerza_nb(lista: list, key: str, genero: str):
     promedio_fuerza_nb = calcular_promedio(lista_genero,"fuerza")
 
     return promedio_fuerza_nb
-
-#lista_casteada = stark_normalizar_dato(lista_personajes)
 
 def mostrar_por_color(lista: list, clave: str):
     diccionario_caracteristica = {}
