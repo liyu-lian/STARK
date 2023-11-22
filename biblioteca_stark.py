@@ -87,6 +87,7 @@ def obtener_maximo(heroes: list, clave: str):
                     maximo = heroe[clave]
                     nombre_max = obtener_nombre(heroe, "nombre")
                     flag_max = False
+                    
 
         mensaje = f"El maximo en {clave} es {maximo}. {nombre_max}"
     else:
